@@ -1,0 +1,115 @@
+$generalPadding: 30px;
+$font: Helvetica; /* HelveticaNeue needs payment */
+$sceneWidth: 840px;
+$boxWidth: 375px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-user-select: none; 
+  -webkit-user-select: none; 
+  -ms-user-select:none; 
+  user-select:none;
+  -o-user-select:none;
+}
+
+body {
+  padding: 0;
+  margin: 0; 
+  background-color: #dddddd;
+  font-family: $font;
+}
+
+#scene {
+  width: $sceneWidth; 
+  background-color: transparent;
+  margin: auto;
+  padding: $generalPadding/2;
+
+  #header {
+    padding: $generalPadding/2;
+    
+    .title {
+      color: #000000;
+      font-size: 35px;
+      line-height: 43px;
+      cursor: default;
+    }
+  
+    .subtitle {
+      color: #000000;
+      font-size: 18px;
+      line-height: 22px;
+      cursor: default;
+    }
+  }
+  
+  .box {
+    float: left;
+    padding: $generalPadding;
+    width: $boxWidth;
+    margin: $generalPadding/2;
+    background-color: white;
+  
+    .title {
+      color: #000000;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      cursor: default;
+    }
+  
+    ul {
+      list-style-type: none;
+  
+      li{
+        margin-top: 23px;
+        font-size: 16px;
+        color: #4a4a4a;
+        line-height: 19px;
+        margin-left: $generalPadding;
+        cursor: pointer;
+      }
+      
+      .app:before {
+        content: attr(apdex);
+        display: inline-block;
+        counter-increment: item;
+        width: $generalPadding;
+        margin-left: -$generalPadding;
+        font-size: 13px;
+        opacity: 0.62;
+        font-weight: bold;
+      }
+  
+      .app .apdex {
+        margin-right: 10px;
+      }
+    }
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .single .box { width: calc(100% - #{$generalPadding})}
+  .double .box { width: calc(50% - #{$generalPadding})}
+  
+  .checkbox {
+    cursor: pointer;
+  }
+  
+  label.checkbox{
+    padding-left: 5px;
+  }
+  
+  #checkbox {
+    margin-left: $generalPadding;
+  }
+}
+

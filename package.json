@@ -1,0 +1,45 @@
+{
+  "name": "codeChallenge",
+  "version": "1.0.0",
+  "description": "New Relic code challenge",
+  "main": "webpack.config.js",
+  "devDependencies": {
+    "@types/mocha": "2.2.48",
+    "@types/node": "^8.0.53",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "4.1.2",
+    "jsdom": "11.6.2",
+    "jsdom-global": "3.0.2",
+    "json-loader": "0.5.7",
+    "mocha": "5.0.1",
+    "ts-node": "4.1.0",
+    "typescript": "^2.6.2",
+    "typings": "2.1.1",
+    "webpack": "^3.8.1"
+  },
+  "scripts": {
+    "clean": "yarn run clean-build-steps && rm -rf dist",
+    "tsc": "./node_modules/.bin/tsc",
+    "babel": "./node_modules/.bin/babel build-tsc --out-dir build-babel --source-maps",
+    "webpack": "webpack && rsync -av --exclude='*.scss' public/ dist/",
+    "clean-build-steps": "rm -rf build-tsc build-babel",
+    "build": "yarn run clean && yarn run tsc && yarn run babel && yarn run webpack && yarn run clean-build-steps",
+    "test": "mocha -r ts-node/register src/**/*.test.ts src/**/**/*.test.ts",
+    "sass": "sass --watch public/:public/",
+    "serve": "http-server dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parronator/codeChallenge.git"
+  },
+  "author": "Albert Parrón <al.parron@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/parronator/codeChallenge/issues"
+  },
+  "homepage": "https://github.com/parronator/codeChallenge#readme",
+  "dependencies": {
+    "chai-dom": "1.7.0"
+  }
+}
